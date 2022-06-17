@@ -1,0 +1,54 @@
+body{
+   margin: 0px;
+   padding: 0px;
+}
+#footer{
+   display: flex;                       height: 500px;
+   width: 100%;
+   background: rgb(207, 213, 213);
+}
+#help{
+   /* background: green; */
+   width:20%;
+   text-align: center;
+   padding: 10px;
+ }
+ #quick{
+   text-align: center;
+   width: 20%;
+ }
+ #contact{
+   text-align: center;
+   width: 20%;
+   
+ }
+ #use{
+   text-align: center;
+   width: 40%;
+   margin-top:40px;
+ }
+ li{
+   padding: 5px;
+   list-style: none;
+   color: black;
+   font-family: sans-serif;
+ }
+ p{
+   color: grey;
+ }
+ .singh{
+   width: 50%;
+   padding: 10px;
+   border-radius: 5px;
+   font-size: 20px;
+ }
+ #icons{
+   display: flex;
+   margin-left: 40px;
+  gap: 20px;
+ }
+ #fonticons{
+   height: 330px;
+  font-size: 30px; 
+  margin-top: 60px;
+ }

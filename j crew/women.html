@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    Women: Buy Women Clothes Online at Best Price | J.Crew
+    </title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous"
+/>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/women.css" />
+   
+  </head>
+  <body>
+    <!--------------Header---------------> 
+    <section id="header">
+      <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
+      <div>
+          <ul id="navbar">
+            <li><a href="index.html">Home</a></li>            
+              <li><a href="women.html">Women</a></li>
+              <li><a href="men.html">Men</a></li>
+              <li><a href="kids.html">Kids</a></li>
+              <li><a href="swim.html">Swim</a></li>
+              <li><a class="active" href="new.html">New</a></li>
+             
+              <li><a class="sale" href="sale.html">Sale</a></li>
+              <input class="input" type="text" placeholder="Search J.Crew">
+              <li><a href="singin.html">SignIn</a></li>
+              <li><a href="index.html"><i class="fa-solid fa-heart"></i></a></li>
+              <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+          </ul>
+      </div>
+  </section>
+    <!--------------Header-end--------------->
+  
+      <div class="sort">
+        <select id="priceSort" onchange="handlerPriceSort()">
+          <option src="" value="">Sorting</option>
+          <option value="high">Price - High to Low</option>
+          <option value="low">Price - Low to High</option>
+          <option value="rel">Relevance</option>
+        </select>
+        <select name="" id="filter" onchange="filter()">
+          <option value="">Select Product</option>
+          <option value="shadow">Smocked</option>
+          <option value="face">mini</option>
+          <option value="found">midi</option>
+          <option value="combo">Tie shoulder</option>
+        </select>
+      </div>
+    </div>
+    <div id="displayitem"></div>
+    <div id="container-prod"></div>
+
+    <div id="footer"></div>
+   
+  </body>
+</html>
+
+<script>
+ var cart = document.querySelector("#cart");
+cart.addEventListener('click', function(){
+  window.location.href ="cartPage.html"
+})
+ var wishlist = document.querySelector("#wishlist");
+wishlist.addEventListener('click', function(){
+  window.location.href ="wishlist.html"
+})
+ var discount = document.querySelector("#discount");
+discount.addEventListener('click', function(){
+  window.location.href ="discount.html"
+})
+  
+   var logo = document.querySelector(".logo");
+logo.addEventListener('click', function(){
+  window.location.href ="homepage.html"
+})
+</script>
+<script>
+  var brushData = [
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI650_BL7683?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=480&hei=480",
+        productName: "Button-front mini dress in eyelet",
+      price: 2399,
+      priceToAdd: 599,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 4.6,
+      reviews: "(15)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg: "https://www.jcrew.com/s7-img-facade/BI587_NA6436_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+      productName: "Smocked linen dress",
+      price: 3349,
+      priceToAdd: 349,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(3)",
+      product: "face",
+      count: 1,
+    },
+    {
+      productImg: "https://www.jcrew.com/s7-img-facade/BI623_WT0002_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+      productName: "Strapless smocked linen dress",
+      price: 2999,
+      priceToAdd: 399,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(1)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI574_PT1317_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Tiered midi dress",
+      price: 1499,
+      priceToAdd: 499,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(2)",
+      product: "found",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI636_YD1210_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Tie-back tiered dress in stripe",
+      price: 3269,
+      priceToAdd: 369,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 4.8,
+      reviews: "(4)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg: "https://www.jcrew.com/s7-img-facade/BG502_BL7133_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+      productName: "Squareneck soft gauze dress",
+      price: 1599,
+      priceToAdd: 599,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 4.9,
+      reviews: "(50)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg: "https://www.jcrew.com/brand_creative/2022/202206-Jun/w_dresses/2022jun_0524_w_dresses_img5.jpg",
+      productName: "Squareneck soft gauze dress",
+      price: 3919,
+      priceToAdd: 399,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(1)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg:"https://www.jcrew.com/s7-img-facade/BI649_BL8133_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+      productName: "Halter maxi dress in soft gauze",
+      price: 3199,
+      priceToAdd: 3199,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(1)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg: "https://www.jcrew.com/s7-img-facade/BI624_PT1318_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+      productName: "Puff-sleeve smocked mini dress in dot",
+      price: 599,
+      priceToAdd: 599,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 4.8,
+      reviews: "(19)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI281_SU9126_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "V-neck space-dyed knit dress",
+      price: 3399,
+      priceToAdd: 3399,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 4.9,
+      reviews: "(7)",
+      product: "found",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI277_BL8133_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Tie-back sheer pointelle knit dress",
+      price: 3999,
+      priceToAdd: 3999,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(1)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI625_BL8794_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Puff-sleeve smocked-waist midi dress",
+      price: 4499,
+      priceToAdd: 4999,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(2)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI631_PT1318_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Puff-sleeve smocked-waist midi dress",
+      price: 399,
+      priceToAdd: 399,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(5)",
+      product: "shadow",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI607_DM6166_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "A-line midi dress in indigo patchwork",
+      price: 2999,
+      priceToAdd: 2999,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(1)",
+      product: "combo",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI598_PT1338_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Tiered maxi dress in tossed floral",
+      price: 799,
+      priceToAdd: 799,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 4.4,
+      reviews: "(2)",
+      product: "combo",
+      count: 1,
+    },
+    {
+      productImg:
+        "https://www.jcrew.com/s7-img-facade/BI690_PT1301_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Kauai tie-shoulder midi dress",
+      price: 1499,
+      priceToAdd: 1499,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(1)",
+      product: "combo",
+      count: 1,
+    },
+    {
+      productImg: "https://www.jcrew.com/s7-img-facade/BI634_WY9098_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+      productName: "Cotton poplin mini dress in stripe",
+      price: 1649,
+      priceToAdd: 1649,
+      star: "https://i.ibb.co/4d3n7ZC/star.png",
+      rating: 5,
+      reviews: "(1)",
+      product: "combo",
+      count: 1,
+    },
+  ];
+
+  localStorage.setItem("brushData", JSON.stringify(brushData));
+
+  var brushData = JSON.parse(localStorage.getItem("brushData"));
+  var cartArr = JSON.parse(localStorage.getItem("cartItems")) || [];
+  var wishlistArr = JSON.parse(localStorage.getItem("listItems")) || [];
+
+  displayData(brushData);
+
+  function filter() {
+    var selected = document.querySelector("#filter").value;
+    var filterList = brushData.filter(function (elem) {
+      return elem.product == selected;
+    });
+    displayData(filterList);
+    document.querySelector(
+      "#displayitem"
+    ).textContent = `Women - ${filterList.length} items`;
+  }
+
+  function handlerPriceSort() {
+    var selected = document.querySelector("#priceSort").value;
+    if (selected == "high") {
+      brushData.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    }
+    if (selected == "low") {
+      brushData.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    }
+    if (selected == "rel") {
+      brushData.sort(function (a, b) {
+        return b.rating - a.rating;
+      });
+    }
+    displayData(brushData);
+  }
+  document.querySelector(
+    "#displayitem"
+  ).textContent = `Women - ${brushData.length} items`;
+   
+  let productArr = JSON.parse(localStorage.getItem("AddToCartProduct")) || [];
+
+  function displayData(brushData) {
+    document.querySelector("#container-prod").innerHTML = "";
+    brushData.map(function (elem) {
+      var div = document.createElement("div");
+      div.setAttribute("id", "main");
+     
+      div.addEventListener("click", function(){
+            addTocart(elem)
+        })
+
+
+      var img = document.createElement("img");
+      img.setAttribute("src", elem. productImg);
+      img.setAttribute("id", "image");
+
+      var head = document.createElement("p");
+      head.setAttribute("id", "textCenter");
+      head.textContent = elem.productName;
+
+      var p = document.createElement("p");
+      p.textContent = `Rs. ${elem.price} `;
+      p.setAttribute("id", "textCenter");
+
+      var div1 = document.createElement("div");
+      div1.setAttribute("id", "flex");
+
+      var img1 = document.createElement("img");
+      img1.setAttribute("src", elem.star);
+      img1.setAttribute("id", "star");
+
+      var p1 = document.createElement("p");
+      p1.textContent = elem.rating;
+      head.setAttribute("id", "textCenter");
+
+      var p2 = document.createElement("p");
+      p2.textContent = elem.reviews;
+      head.setAttribute("id", "textCenter");
+
+      var div2 = document.createElement("div");
+      div2.setAttribute("id", "flex1");
+
+      var btn = document.createElement("button");
+      btn.setAttribute("id", "btn");
+      btn.innerHTML = "&#129293";
+      btn.addEventListener("click", function () {
+        wishList(elem);
+      });
+
+      var btn1 = document.createElement("button");
+      btn1.textContent = "Add to cart";
+      btn1.addEventListener("click", function () {
+        addToCart(elem);
+      });
+      btn1.setAttribute("id", "btn1");
+      div2.append(btn, btn1);
+      div1.append(img1, p1, p2);
+      div.append(img, head, p, div1, div2);
+      document.querySelector("#container-prod").append(div);
+    });
+  }
+
+  function addToCart(elem) {
+    console.log(elem);
+    cartArr.push(elem);
+    localStorage.setItem("cartItems", JSON.stringify(cartArr));
+    alert("Item added to cart");
+  }
+
+  function wishList(elem) {
+    wishlistArr.push(elem);
+    localStorage.setItem("listItems", JSON.stringify(wishlistArr));
+    alert("Item added to wish list");
+  }
+   
+   
+  function  addTocart(elem){
+        productArr.push(elem);
+        localStorage.setItem("AddToCartProduct",JSON.stringify(productArr));
+    }
+
+
+</script>

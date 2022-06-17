@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  
+    <link rel="stylesheet" href="styles/kids.css">
+    <link rel="stylesheet" href="styles/index.css">
+
+ 
+</head>
+<body>
+
+    <section id="header">
+        <a href="#"><img src="images/logo.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>               
+                <li><a href="women.html">Women</a></li>
+                <li><a href="men.html">Men</a></li>
+                
+                <li><a href="swim.html">Swim</a></li>
+                <li><a class="active" href="new.html">New</a></li>
+                <!-- <li><a href="stories.html">Stories</a></li> -->
+                <li><a class="sale" href="sale.html">Sale</a></li>
+                <input class="input" type="text" placeholder="Search J.Crew">
+                <li><a href="singin.html">SignIn</a></li>
+                <li><a href="index.html"><i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+       
+ 
+  
+    <div id="productlist"></div>
+   
+  </div>
+</body>
+</html>
+
+<script>
+    var productsDetails = [
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/brand_creative/2022/202206-Jun/cc_newarrivals/2022jun_0524_na_g_img0.jpg",
+        productName: "pretty puff-sleeve top and skirt ",
+        price: "Rs.1699",
+        priceToAdd: 1699,
+        star: "https://sugarcosmetics.com/star_filled.png",
+        rating: "4.8(63)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/brand_creative/2022/202206-Jun/cc_newarrivals/2022jun_0524_na_g_img1.jpg",
+        productName: "pretty puff-sleeve top and skirt ",
+        price: "Rs.499",
+        priceToAdd: 499,
+        star: "https://sugarcosmetics.com/star_filled.png",
+        rating: "4.5(60)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/s7-img-facade/BH066_WY0904_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Girls'flutter-sleeve dress with rickrack",
+        star: "https://sugarcosmetics.com/star_filled.png",
+        price: "Rs.899",
+        priceToAdd: 899,
+        rating: "4.8(44)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "12",
+        shadeImg: "https://in.sugarcosmetics.com/ic_multiple_shades_opt2.png",
+        productImg: "https://www.jcrew.com/brand_creative/2022/202206-Jun/cc_newarrivals/2022jun_0524_na_g_img2.jpg",
+        productName: "Girls sequin graphic T-shirt",
+        star: "https://sugarcosmetics.com/star_filled.png",
+        price: "Rs.499",
+        priceToAdd: 499,
+        rating: "4.7(130)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "SELECT SHADE"
+    }  , 
+
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/s7-img-facade/BH067_PT1259?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Girls puff-sleeve dress in stripe",
+        price: "Rs.699",
+        priceToAdd: 699,
+        star: "https://sugarcosmetics.com/star_filled.png",
+        rating: "4.8(63)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/s7-img-facade/BH585_GP0141?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Girls sequin graphic T-shirt",
+        price: "Rs.499",
+        priceToAdd: 499,
+        star: "https://sugarcosmetics.com/star_filled.png",
+        rating: "4.5(60)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/brand_creative/2022/202206-Jun/cc_newarrivals/2022jun_0524_na_g_img4.jpg",
+        productName: "Girl'cropped Top",
+        star: "https://sugarcosmetics.com/star_filled.png",
+        price: "Rs.899",
+        priceToAdd: 899,
+        rating: "4.8(44)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "12",
+        shadeImg: "https://in.sugarcosmetics.com/ic_multiple_shades_opt2.png",
+        productImg: "https://www.jcrew.com/brand_creative/2022/202206-Jun/cc_newarrivals/2022jun_0524_na_g_img6.jpg",
+        productName: "Girls tank top in tie-dye stripe",
+        star: "https://sugarcosmetics.com/star_filled.png",
+        price: "Rs.499",
+        priceToAdd: 499,
+        rating: "4.7(130)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "SELECT SHADE"
+    }  , 
+    
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/s7-img-facade/BH585_GP0189_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Girls sequin graphic T-shirt",
+        price: "Rs.699",
+        priceToAdd: 699,
+        star: "https://sugarcosmetics.com/star_filled.png",
+        rating: "4.8(63)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/s7-img-facade/BH063_PT2019_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Girls Luredx",
+        price: "Rs.499",
+        priceToAdd: 499,
+        star: "https://sugarcosmetics.com/star_filled.png",
+        rating: "4.5(60)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "",
+        shadeImg: "",
+        productImg: "https://www.jcrew.com/s7-img-facade/BH067_PT1252?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Girls puff-sleeve dress in stripe",
+        star: "https://sugarcosmetics.com/star_filled.png",
+        price: "Rs.899",
+        priceToAdd: 899,
+        rating: "4.8(44)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "ADD TO CART"
+    },
+    {
+        number: "12",
+        shadeImg: "https://in.sugarcosmetics.com/ic_multiple_shades_opt2.png",
+        productImg: "https://www.jcrew.com/s7-img-facade/BH068_YL5769_m?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&crop=0,0,0,0&wid=280&hei=280",
+        productName: "Girls smocked cotton dress with bows ",
+        star: "https://sugarcosmetics.com/star_filled.png",
+        price: "Rs.499",
+        priceToAdd: 499,
+        rating: "4.7(130)",
+        heartImg: "https://cdn-icons-png.flaticon.com/128/833/833300.png",
+        select: "SELECT SHADE"
+    }  , 
+    
+    
+];
+
+    var count = 0;
+    let productArr = JSON.parse(localStorage.getItem("AddToCartProduct")) || [];
+
+    productsDetails.map(function(elem){
+
+        var mainDiv = document.createElement("div")
+        mainDiv.setAttribute("class", "container")
+        count++;
+
+        
+        mainDiv.addEventListener("click", function(){
+            addTocart(elem)
+        })
+
+        var divForShade = document.createElement("div")
+        divForShade.setAttribute("class", "div_for_shade")
+        var numberOfShade = document.createElement("p")
+        numberOfShade.innerText = elem.number;
+        var shadeImg = document.createElement("img")
+        shadeImg.setAttribute("src", elem.shadeImg)
+        divForShade.append(numberOfShade, shadeImg)
+
+        var productImg = document.createElement("img")
+        productImg.setAttribute("src", elem.productImg)
+        productImg.setAttribute("class", "productImg")
+
+        var productName = document.createElement("h6")
+        productName.innerText = elem.productName
+        productName.setAttribute("class", "productName")
+
+        var price = document.createElement("p")
+        price.innerText = elem.price
+        price.setAttribute("class", "price")
+
+        var divForStar = document.createElement("div")
+        divForStar.style.display = "flex"
+        divForStar.style.backgroundColor = "#ffffff"
+        divForStar.style.justifyContent = "center"
+        var star = document.createElement("img")
+        star.setAttribute("src", elem.star)
+        star.style.height = "16px"
+        star.style.backgroundColor = "#ffffff"
+        var rating = document.createElement("p")
+        rating.innerText = elem.rating
+        rating.setAttribute("class", "rating")
+        divForStar.append(star, rating)
+
+        var divHover = document.createElement("div")
+        divHover.setAttribute("class", "div_hover")
+        var div_heart = document.createElement("div")
+        var heart = document.createElement("img")
+        heart.setAttribute("src", elem.heartImg)
+        div_heart.append(heart)
+        var div_select = document.createElement("div")
+        var select = document.createElement("p")
+        select.innerText = elem.select
+        div_select.append(select)
+        divHover.append(div_heart, div_select)
+
+        mainDiv.addEventListener("mouseover", function(){
+            divHover.style.display = "flex"
+        })
+
+        mainDiv.addEventListener("mouseleave", function(){
+            divHover.style.display = "none"
+        })
+
+        mainDiv.append(divForShade, productImg, productName, price, divForStar, divHover)
+
+        document.querySelector("#productlist").append(mainDiv)
+    })
+
+    document.querySelector("#second>p>span>span").innerText = count
+
+    function  addTocart(elem){
+        productArr.push(elem);
+        localStorage.setItem("AddToCartProduct",JSON.stringify(productArr));
+    }
+</script>   
+
